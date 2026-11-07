@@ -1,0 +1,146 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-11-07T08:41:50.263776+00:00"
+  },
+  "vulnerabilities": [
+    {
+      "id": "CVE-2024-37891",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-37891"
+      },
+      "analysis": {
+        "state": "not_affected",
+        "justification": "protected_by_mitigating_control",
+        "detail": "[VEX-Prove Formal Certificate] Z3=UNSAT | UNSAT_Core=['AST_Caller_Guard_Pops_Proxy_Authorization', 'OSV_Precondition_CVE-2024-37891_Requires_redirect_enabled_AND_has_proxy_auth_header_AND_not_strips_proxy_auth'] | eBPF_Mode=kernel_ebpf_uprobe_attached (uprobe:/lib/x86_64-linux-gnu/libz.so.1:inflate) | Trace_SHA256=fc0c677cf6e9c09a"
+      },
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.26.18"
+        }
+      ]
+    },
+    {
+      "id": "CVE-2025-50181",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-50181"
+      },
+      "analysis": {
+        "state": "not_affected",
+        "justification": "protected_by_compiler",
+        "detail": "[VEX-Prove Formal Certificate] Z3=UNSAT | UNSAT_Core=['eBPF_Runtime_State_redirect_is_False', 'OSV_Precondition_CVE-2025-50181_Requires_redirect_enabled'] | eBPF_Mode=kernel_ebpf_uprobe_attached (uprobe:/lib/x86_64-linux-gnu/libz.so.1:inflate) | Trace_SHA256=fc0c677cf6e9c09a"
+      },
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.26.18"
+        }
+      ]
+    },
+    {
+      "id": "CVE-2026-44431",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44431"
+      },
+      "analysis": {
+        "state": "not_affected",
+        "justification": "protected_by_compiler",
+        "detail": "[VEX-Prove Formal Certificate] Z3=UNSAT | UNSAT_Core=['eBPF_Runtime_State_redirect_is_False', 'OSV_Precondition_CVE-2026-44431_Requires_redirect_enabled'] | eBPF_Mode=kernel_ebpf_uprobe_attached (uprobe:/lib/x86_64-linux-gnu/libz.so.1:inflate) | Trace_SHA256=fc0c677cf6e9c09a"
+      },
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.26.18"
+        }
+      ]
+    },
+    {
+      "id": "CVE-2026-21441",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21441"
+      },
+      "analysis": {
+        "state": "not_affected",
+        "justification": "code_not_reachable",
+        "detail": "[VEX-Prove Formal Certificate] Z3=UNSAT | UNSAT_Core=['OSV_Precondition_CVE-2026-21441_Requires_redirect_enabled_AND_streaming_enabled', 'eBPF_Runtime_State_stream_is_False'] | eBPF_Mode=kernel_ebpf_uprobe_attached (uprobe:/lib/x86_64-linux-gnu/libz.so.1:inflate) | Trace_SHA256=fc0c677cf6e9c09a"
+      },
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.26.18"
+        }
+      ]
+    },
+    {
+      "id": "CVE-2025-66471",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66471"
+      },
+      "analysis": {
+        "state": "not_affected",
+        "justification": "code_not_reachable",
+        "detail": "[VEX-Prove Formal Certificate] Z3=UNSAT | UNSAT_Core=['OSV_Precondition_CVE-2025-66471_Requires_streaming_enabled', 'eBPF_Runtime_State_stream_is_False'] | eBPF_Mode=kernel_ebpf_uprobe_attached (uprobe:/lib/x86_64-linux-gnu/libz.so.1:inflate) | Trace_SHA256=fc0c677cf6e9c09a"
+      },
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.26.18"
+        }
+      ]
+    },
+    {
+      "id": "CVE-2026-97687",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97687"
+      },
+      "analysis": {
+        "state": "not_affected",
+        "justification": "code_not_reachable",
+        "detail": "[VEX-Prove Formal Certificate] Z3=UNSAT | UNSAT_Core=['OSV_Precondition_CVE-2026-97687_Requires_https_proxy_configured', 'eBPF_Runtime_State_https_proxy_is_False'] | eBPF_Mode=kernel_ebpf_uprobe_attached (uprobe:/lib/x86_64-linux-gnu/libz.so.1:inflate) | Trace_SHA256=fc0c677cf6e9c09a"
+      },
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.26.18"
+        }
+      ]
+    },
+    {
+      "id": "CVE-2025-66418",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66418"
+      },
+      "analysis": {
+        "state": "exploitable",
+        "justification": null,
+        "detail": "[VEX-Prove Formal Certificate] Z3=SAT | UNSAT_Core=[] | eBPF_Mode=kernel_ebpf_uprobe_attached (uprobe:/lib/x86_64-linux-gnu/libz.so.1:inflate) | Trace_SHA256=fc0c677cf6e9c09a"
+      },
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.26.18"
+        }
+      ]
+    },
+    {
+      "id": "CVE-2026-97689",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97689"
+      },
+      "analysis": {
+        "state": "exploitable",
+        "justification": null,
+        "detail": "[VEX-Prove Formal Certificate] Z3=SAT | UNSAT_Core=[] | eBPF_Mode=kernel_ebpf_uprobe_attached (uprobe:/lib/x86_64-linux-gnu/libz.so.1:inflate) | Trace_SHA256=fc0c677cf6e9c09a"
+      },
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.26.18"
+        }
+      ]
+    }
+  ]
+}

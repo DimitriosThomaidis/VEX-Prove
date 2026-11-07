@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "VEX-Prove Universal Repo Scanner",
+          "version": "1.0.0"
+        }
+      },
+      "results": [
+        {
+          "ruleId": "CVE-2026-97689",
+          "level": "error",
+          "message": {
+            "text": "urllib3==1.26.18 (CVE-2026-97689): urllib3: urllib3: Denial of Service via unbounded memory allocation in chunk parser -> Witness: Exploitable path in benchmarks/realworld_app (entrypoint_transitive_slice (safe_service.py))"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "benchmarks/realworld_app/safe_service.py"
+                },
+                "region": {
+                  "startLine": 53
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

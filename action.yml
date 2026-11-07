@@ -1,0 +1,20 @@
+name: "VEX-Prove: Concolic eBPF & Z3 Proof-Carrying VEX Engine"
+description: "Automatically triages Trivy CVEs via eBPF uprobes & Z3 UNSAT Cores and emits OpenVEX/CycloneDX/CSAF bundles."
+author: "Dimitrios Thomaidis"
+inputs:
+  mode:
+    description: "Target verification profile ('safe' or 'vulnerable')"
+    required: false
+    default: "safe"
+  output-dir:
+    description: "Directory for generated VEX and SMT-LIB2 proof bundles"
+    required: false
+    default: "output"
+runs:
+  using: "composite"
+  steps:
+    - name: Run VEX-Prove Formal Triage & Bundle Emitter
+      shell: bash
+      run: |
+        python3 -m vex_prove.cli.main verify --mode "${{ inputs.mode }}" --output-dir "${{ inputs.output-dir }}"
+        python3 -m vex_prove.cli.main verify-bundle "${{ inputs.output-dir }}/cra_annex_vii_proof_bundle.tar.gz"

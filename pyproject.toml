@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vex-prove"
+version = "1.0.0"
+description = "Concolic eBPF uprobe & Multi-Theory Z3 VEX/CBOM/AIBOM Verification Engine for EU CRA & US CISA"
+authors = [{ name = "Dimitrios Thomaidis" }]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "z3-solver==5.3.3.0",
+    "cyclonedx-python-lib==11.12.0",
+    "pydantic>=2.9.0",
+    "jinja2>=3.1.2",
+    "pyyaml>=5.3.1",
+    "httpx",
+    "requests",
+    "typer",
+    "rich",
+]
+
+[project.scripts]
+vex-prove = "vex_prove.cli.main:app"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["vex_prove*", "benchmarks*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

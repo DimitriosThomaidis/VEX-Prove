@@ -1,0 +1,61 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-11-06T13:00:00Z",
+    "tools": [
+      {
+        "vendor": "VEX-Prove",
+        "name": "Z3-AIBOM-And-MCP-Verifier",
+        "version": "1.0.0"
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "machine-learning-model",
+      "name": "medinest-clinical-ner-v1.safetensors.pkl (Pure State Dict)",
+      "modelCard": {
+        "modelParameters": {
+          "task": "Clinical Entity Extraction"
+        },
+        "considerations": {
+          "euAiActRiskClassification": "Annex-IV-Verified"
+        }
+      },
+      "properties": [
+        {
+          "name": "vex-prove:pickle_opcodes_inspected",
+          "value": "23"
+        },
+        {
+          "name": "vex-prove:z3_verdict",
+          "value": "UNSAT (Safe Tensor/Dict Stream)"
+        },
+        {
+          "name": "vex-prove:z3_proof",
+          "value": "UNSAT Core: ['PickleVM_Disassembler_Callable_Opcodes_is_False', 'OSV_CVE_2025_32434_Requires_Callable_Pickle_Opcode']"
+        }
+      ]
+    },
+    {
+      "type": "service",
+      "name": "vex-prove-mcp-server (Hardened execve array)",
+      "properties": [
+        {
+          "name": "vex-prove:cve_checked",
+          "value": "CVE-2026-0755"
+        },
+        {
+          "name": "vex-prove:z3_verdict",
+          "value": "UNSAT (Protected MCP Boundary)"
+        },
+        {
+          "name": "vex-prove:z3_proof",
+          "value": "UNSAT Core: ['MCP_Subprocess_shell_is_False', 'OSV_CVE_2026_0755_MCP_Shell_Injection_Condition']"
+        }
+      ]
+    }
+  ]
+}

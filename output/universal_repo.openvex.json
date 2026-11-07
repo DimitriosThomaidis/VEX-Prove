@@ -1,0 +1,232 @@
+{
+  "@context": "https://openvex.dev/ns/v0.2.0",
+  "@id": "https://vex-prove.local/openvex/repo/realworld_app",
+  "author": "Dimitrios Thomaidis (VEX-Prove Universal Repo Scanner)",
+  "timestamp": "2026-11-06T16:30:00Z",
+  "version": 1,
+  "statements": [
+    {
+      "vulnerability": {
+        "name": "CVE-2024-34064",
+        "description": "jinja2: accepts keys containing non-attribute characters"
+      },
+      "products": [
+        {
+          "@id": "pkg:pypi/jinja2@3.1.3"
+        }
+      ],
+      "status": "not_affected",
+      "justification": "inline_mitigations_already_exist",
+      "impact_statement": "Verified UNSAT (entrypoint_transitive_slice (safe_service.py)): ['AST_Repo_Jinja2_Autoescape_And_Guard_is_True', 'OSV_CVE-2024-34064_Requires_Unguarded_xmlattr']"
+    },
+    {
+      "vulnerability": {
+        "name": "CVE-2024-56201",
+        "description": "jinja2: Jinja has a sandbox breakout through malicious filenames"
+      },
+      "products": [
+        {
+          "@id": "pkg:pypi/jinja2@3.1.3"
+        }
+      ],
+      "status": "not_affected",
+      "justification": "vulnerable_code_not_in_execute_path",
+      "impact_statement": "Verified UNSAT (entrypoint_transitive_slice (safe_service.py)): ['OSV_CVE-2024-56201_Requires_Untrusted_Template', 'AST_Repo_Templates_Are_Static_Literals']"
+    },
+    {
+      "vulnerability": {
+        "name": "CVE-2024-56326",
+        "description": "jinja2: Jinja has a sandbox breakout through indirect reference to format method"
+      },
+      "products": [
+        {
+          "@id": "pkg:pypi/jinja2@3.1.3"
+        }
+      ],
+      "status": "not_affected",
+      "justification": "vulnerable_code_not_in_execute_path",
+      "impact_statement": "Verified UNSAT (entrypoint_transitive_slice (safe_service.py)): ['OSV_CVE-2024-56326_Requires_Untrusted_Template', 'AST_Repo_Templates_Are_Static_Literals']"
+    },
+    {
+      "vulnerability": {
+        "name": "CVE-2025-27516",
+        "description": "jinja2: Jinja sandbox breakout through attr filter selecting format method"
+      },
+      "products": [
+        {
+          "@id": "pkg:pypi/jinja2@3.1.3"
+        }
+      ],
+      "status": "not_affected",
+      "justification": "vulnerable_code_not_in_execute_path",
+      "impact_statement": "Verified UNSAT (entrypoint_transitive_slice (safe_service.py)): ['AST_Repo_Templates_Are_Static_Literals', 'OSV_CVE-2025-27516_Requires_Untrusted_Template']"
+    },
+    {
+      "vulnerability": {
+        "name": "CVE-2020-14343",
+        "description": "PyYAML: incomplete fix for CVE-2020-1747"
+      },
+      "products": [
+        {
+          "@id": "pkg:pypi/pyyaml@5.3.1"
+        }
+      ],
+      "status": "not_affected",
+      "justification": "vulnerable_code_cannot_be_controlled_by_adversary",
+      "impact_statement": "Verified UNSAT (entrypoint_transitive_slice (safe_service.py)): ['OSV_CVE-2020-14343_Requires_Unsafe_YAML_Loader', 'AST_Repo_PyYAML_SafeLoader_Only_is_True']"
+    },
+    {
+      "vulnerability": {
+        "name": "CVE-2024-35195",
+        "description": "requests: subsequent requests to the same host ignore cert verification"
+      },
+      "products": [
+        {
+          "@id": "pkg:pypi/requests@2.31.0"
+        }
+      ],
+      "status": "not_affected",
+      "justification": "vulnerable_code_cannot_be_controlled_by_adversary",
+      "impact_statement": "Verified UNSAT (entrypoint_transitive_slice (safe_service.py)): ['AST_Repo_Requests_TLS_Verify_is_True', 'OSV_CVE-2024-35195_Requires_verify_False']"
+    },
+    {
+      "vulnerability": {
+        "name": "CVE-2024-47081",
+        "description": "requests: Requests vulnerable to .netrc credentials leak via malicious URLs"
+      },
+      "products": [
+        {
+          "@id": "pkg:pypi/requests@2.31.0"
+        }
+      ],
+      "status": "not_affected",
+      "justification": "vulnerable_code_not_in_execute_path",
+      "impact_statement": "Verified UNSAT (entrypoint_transitive_slice (safe_service.py)): ['OSV_CVE-2024-47081_Requires_Netrc_Leak', 'AST_Repo_Netrc_Disabled']"
+    },
+    {
+      "vulnerability": {
+        "name": "CVE-2026-25645",
+        "description": "requests: Requests: Security bypass due to predictable temporary file creation"
+      },
+      "products": [
+        {
+          "@id": "pkg:pypi/requests@2.31.0"
+        }
+      ],
+      "status": "not_affected",
+      "justification": "vulnerable_code_not_in_execute_path",
+      "impact_statement": "Verified UNSAT (entrypoint_transitive_slice (safe_service.py)): ['AST_Repo_Netrc_Disabled', 'OSV_CVE-2026-25645_Requires_Netrc_Leak']"
+    },
+    {
+      "vulnerability": {
+        "name": "CVE-2025-66418",
+        "description": "urllib3: urllib3: Unbounded decompression chain leads to resource exhaustion"
+      },
+      "products": [
+        {
+          "@id": "pkg:pypi/urllib3@1.26.18"
+        }
+      ],
+      "status": "not_affected",
+      "justification": "vulnerable_code_not_in_execute_path",
+      "impact_statement": "Verified UNSAT (entrypoint_transitive_slice (safe_service.py)): ['Kernel_eBPF_libz_inflate_calls_is_0', 'OSV_CVE-2025-66418_Requires_Kernel_inflate_Execution']"
+    },
+    {
+      "vulnerability": {
+        "name": "CVE-2025-66471",
+        "description": "urllib3: urllib3 Streaming API improperly handles highly compressed data"
+      },
+      "products": [
+        {
+          "@id": "pkg:pypi/urllib3@1.26.18"
+        }
+      ],
+      "status": "not_affected",
+      "justification": "vulnerable_code_not_in_execute_path",
+      "impact_statement": "Verified UNSAT (entrypoint_transitive_slice (safe_service.py)): ['OSV_CVE-2025-66471_Requires_Kernel_inflate_Execution', 'Kernel_eBPF_libz_inflate_calls_is_0']"
+    },
+    {
+      "vulnerability": {
+        "name": "CVE-2026-21441",
+        "description": "urllib3: urllib3 vulnerable to decompression-bomb safeguard bypass when following HTTP redirects (streaming API)"
+      },
+      "products": [
+        {
+          "@id": "pkg:pypi/urllib3@1.26.18"
+        }
+      ],
+      "status": "not_affected",
+      "justification": "vulnerable_code_cannot_be_controlled_by_adversary",
+      "impact_statement": "Verified UNSAT (entrypoint_transitive_slice (safe_service.py)): ['AST_Repo_urllib3_Redirects_Disabled_is_True', 'OSV_CVE-2026-21441_Requires_Redirects_Enabled']"
+    },
+    {
+      "vulnerability": {
+        "name": "CVE-2026-44431",
+        "description": "urllib3: urllib3: Information disclosure via cross-origin redirects forwarding sensitive headers"
+      },
+      "products": [
+        {
+          "@id": "pkg:pypi/urllib3@1.26.18"
+        }
+      ],
+      "status": "not_affected",
+      "justification": "vulnerable_code_cannot_be_controlled_by_adversary",
+      "impact_statement": "Verified UNSAT (entrypoint_transitive_slice (safe_service.py)): ['OSV_CVE-2026-44431_Requires_Redirects_Enabled', 'AST_Repo_urllib3_Redirects_Disabled_is_True']"
+    },
+    {
+      "vulnerability": {
+        "name": "CVE-2026-97687",
+        "description": "urllib3: urllib3: Traffic interception via HTTPS proxy TLS configuration override"
+      },
+      "products": [
+        {
+          "@id": "pkg:pypi/urllib3@1.26.18"
+        }
+      ],
+      "status": "not_affected",
+      "justification": "vulnerable_code_cannot_be_controlled_by_adversary",
+      "impact_statement": "Verified UNSAT (entrypoint_transitive_slice (safe_service.py)): ['AST_Repo_urllib3_Redirects_Disabled_is_True', 'OSV_CVE-2026-97687_Requires_Redirects_Enabled']"
+    },
+    {
+      "vulnerability": {
+        "name": "CVE-2026-97689",
+        "description": "urllib3: urllib3: Denial of Service via unbounded memory allocation in chunk parser"
+      },
+      "products": [
+        {
+          "@id": "pkg:pypi/urllib3@1.26.18"
+        }
+      ],
+      "status": "affected",
+      "action_statement": "Active SAT Risk in benchmarks/realworld_app: Witness: Exploitable path in benchmarks/realworld_app (entrypoint_transitive_slice (safe_service.py))"
+    },
+    {
+      "vulnerability": {
+        "name": "CVE-2024-37891",
+        "description": "urllib3: proxy-authorization request header is not stripped during cross-origin redirects"
+      },
+      "products": [
+        {
+          "@id": "pkg:pypi/urllib3@1.26.18"
+        }
+      ],
+      "status": "not_affected",
+      "justification": "vulnerable_code_cannot_be_controlled_by_adversary",
+      "impact_statement": "Verified UNSAT (entrypoint_transitive_slice (safe_service.py)): ['AST_Repo_urllib3_Redirects_Disabled_is_True', 'OSV_CVE-2024-37891_Requires_Redirects_Enabled']"
+    },
+    {
+      "vulnerability": {
+        "name": "CVE-2025-50181",
+        "description": "urllib3: urllib3 redirects are not disabled when retries are disabled on PoolManager instantiation"
+      },
+      "products": [
+        {
+          "@id": "pkg:pypi/urllib3@1.26.18"
+        }
+      ],
+      "status": "not_affected",
+      "justification": "vulnerable_code_cannot_be_controlled_by_adversary",
+      "impact_statement": "Verified UNSAT (entrypoint_transitive_slice (safe_service.py)): ['AST_Repo_urllib3_Redirects_Disabled_is_True', 'OSV_CVE-2025-50181_Requires_Redirects_Enabled']"
+    }
+  ]
+}

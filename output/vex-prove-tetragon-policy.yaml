@@ -1,0 +1,22 @@
+apiVersion: cilium.io/v1alpha1
+kind: TracingPolicy
+metadata:
+  name: vex-prove-z3-unsat-core-runtime-guard
+  annotations:
+    vex-prove.io/compiler: "Z3-UNSAT-Core-to-eBPF-Synthesizer"
+    vex-prove.io/enforced-cves: "CVE-2026-ZLIB-INFLATE9,CVE-2026-EXPAT-DTD,CVE-2025-66418"
+spec:
+  uprobes:
+    - path: "/lib/x86_64-linux-gnu/libz.so.1"
+      symbols:
+        - "inflateBack9"
+        - "inflate"
+      selectors:
+        - matchActions:
+            - action: Sigkill
+    - path: "/lib/x86_64-linux-gnu/libexpat.so.1"
+      symbols:
+        - "XML_ExternalEntityParserCreate"
+      selectors:
+        - matchActions:
+            - action: Sigkill

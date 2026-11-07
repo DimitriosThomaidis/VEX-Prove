@@ -1,0 +1,109 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-11-06T12:00:00Z",
+    "tools": [
+      {
+        "vendor": "VEX-Prove",
+        "name": "Z3-PQC-CBOM-Prover",
+        "version": "1.0.0"
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "cryptographic-asset",
+      "name": "OpenSSL-SHA256 (libcrypto.so.3 EVP_DigestInit_ex)",
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "oid": "2.16.840.1.101.3.4.2.1",
+        "algorithmProperties": {
+          "primitive": "SHA-2",
+          "parameterSetIdentifier": "256",
+          "nistQuantumSecurityLevel": 1
+        }
+      },
+      "properties": [
+        {
+          "name": "vex-prove:z3_verdict",
+          "value": "UNSAT (Compliant / Mitigated)"
+        },
+        {
+          "name": "vex-prove:z3_proof",
+          "value": "UNSAT Core: ['NIST_Quantum_Security_Level_is_1', 'Crypto_Bit_Length_is_256', 'NIST_PQC_And_FIPS_Crypto_Violation_Condition']"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "name": "Python-MD5-CacheKey (usedforsecurity=False)",
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "oid": "1.2.840.113549.2.5",
+        "algorithmProperties": {
+          "primitive": "MD5",
+          "parameterSetIdentifier": "128",
+          "nistQuantumSecurityLevel": 0
+        }
+      },
+      "properties": [
+        {
+          "name": "vex-prove:z3_verdict",
+          "value": "UNSAT (Compliant / Mitigated)"
+        },
+        {
+          "name": "vex-prove:z3_proof",
+          "value": "UNSAT Core: ['NIST_PQC_And_FIPS_Crypto_Violation_Condition', 'Live_RAM_usedforsecurity_is_False']"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "name": "Legacy-RSA-1024-Webhook-Signer (Deprecated & Quantum-Vulnerable!)",
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "oid": "1.2.840.113549.1.1.1",
+        "algorithmProperties": {
+          "primitive": "RSA",
+          "parameterSetIdentifier": "1024",
+          "nistQuantumSecurityLevel": 0
+        }
+      },
+      "properties": [
+        {
+          "name": "vex-prove:z3_verdict",
+          "value": "SAT (Crypto Policy Violation!)"
+        },
+        {
+          "name": "vex-prove:z3_proof",
+          "value": "Witness: {used_for_security: True, bits: 1024, quantum_level: 0}"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "name": "ML-KEM-768 (NIST FIPS 203 Post-Quantum Hybrid Key Encapsulation)",
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "oid": "2.16.840.1.101.3.4.4.2",
+        "algorithmProperties": {
+          "primitive": "KEM (Lattice-Based PQC)",
+          "parameterSetIdentifier": "768",
+          "nistQuantumSecurityLevel": 3
+        }
+      },
+      "properties": [
+        {
+          "name": "vex-prove:z3_verdict",
+          "value": "UNSAT (Compliant / Mitigated)"
+        },
+        {
+          "name": "vex-prove:z3_proof",
+          "value": "UNSAT Core: ['NIST_Quantum_Security_Level_is_3', 'Crypto_Bit_Length_is_768', 'NIST_PQC_And_FIPS_Crypto_Violation_Condition']"
+        }
+      ]
+    }
+  ]
+}

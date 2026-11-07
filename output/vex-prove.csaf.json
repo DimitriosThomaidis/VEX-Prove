@@ -1,0 +1,144 @@
+{
+  "document": {
+    "category": "csaf_vex",
+    "csaf_version": "2.0",
+    "title": "VEX-Prove Multi-CVE Formal Attestation",
+    "publisher": {
+      "category": "vendor",
+      "name": "VEX-Prove",
+      "namespace": "https://vex-prove.local"
+    },
+    "tracking": {
+      "id": "VEX-PROVE-BATCH-001",
+      "status": "final",
+      "version": "1",
+      "initial_release_date": "2026-11-07T08:41:50.263776+00:00",
+      "current_release_date": "2026-11-07T08:41:50.263776+00:00"
+    }
+  },
+  "product_tree": {
+    "full_product_names": [
+      {
+        "name": "pkg:pypi/urllib3@1.26.18",
+        "product_id": "PROD-URLLIB3",
+        "product_identification_helper": {
+          "purl": "pkg:pypi/urllib3@1.26.18"
+        }
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2024-37891",
+      "product_status": {
+        "known_not_affected": [
+          "PROD-URLLIB3"
+        ]
+      },
+      "notes": [
+        {
+          "category": "summary",
+          "text": "[VEX-Prove Formal Certificate] Z3=UNSAT | UNSAT_Core=['AST_Caller_Guard_Pops_Proxy_Authorization', 'OSV_Precondition_CVE-2024-37891_Requires_redirect_enabled_AND_has_proxy_auth_header_AND_not_strips_proxy_auth'] | eBPF_Mode=kernel_ebpf_uprobe_attached (uprobe:/lib/x86_64-linux-gnu/libz.so.1:inflate) | Trace_SHA256=fc0c677cf6e9c09a"
+        }
+      ]
+    },
+    {
+      "cve": "CVE-2025-50181",
+      "product_status": {
+        "known_not_affected": [
+          "PROD-URLLIB3"
+        ]
+      },
+      "notes": [
+        {
+          "category": "summary",
+          "text": "[VEX-Prove Formal Certificate] Z3=UNSAT | UNSAT_Core=['eBPF_Runtime_State_redirect_is_False', 'OSV_Precondition_CVE-2025-50181_Requires_redirect_enabled'] | eBPF_Mode=kernel_ebpf_uprobe_attached (uprobe:/lib/x86_64-linux-gnu/libz.so.1:inflate) | Trace_SHA256=fc0c677cf6e9c09a"
+        }
+      ]
+    },
+    {
+      "cve": "CVE-2026-44431",
+      "product_status": {
+        "known_not_affected": [
+          "PROD-URLLIB3"
+        ]
+      },
+      "notes": [
+        {
+          "category": "summary",
+          "text": "[VEX-Prove Formal Certificate] Z3=UNSAT | UNSAT_Core=['eBPF_Runtime_State_redirect_is_False', 'OSV_Precondition_CVE-2026-44431_Requires_redirect_enabled'] | eBPF_Mode=kernel_ebpf_uprobe_attached (uprobe:/lib/x86_64-linux-gnu/libz.so.1:inflate) | Trace_SHA256=fc0c677cf6e9c09a"
+        }
+      ]
+    },
+    {
+      "cve": "CVE-2026-21441",
+      "product_status": {
+        "known_not_affected": [
+          "PROD-URLLIB3"
+        ]
+      },
+      "notes": [
+        {
+          "category": "summary",
+          "text": "[VEX-Prove Formal Certificate] Z3=UNSAT | UNSAT_Core=['OSV_Precondition_CVE-2026-21441_Requires_redirect_enabled_AND_streaming_enabled', 'eBPF_Runtime_State_stream_is_False'] | eBPF_Mode=kernel_ebpf_uprobe_attached (uprobe:/lib/x86_64-linux-gnu/libz.so.1:inflate) | Trace_SHA256=fc0c677cf6e9c09a"
+        }
+      ]
+    },
+    {
+      "cve": "CVE-2025-66471",
+      "product_status": {
+        "known_not_affected": [
+          "PROD-URLLIB3"
+        ]
+      },
+      "notes": [
+        {
+          "category": "summary",
+          "text": "[VEX-Prove Formal Certificate] Z3=UNSAT | UNSAT_Core=['OSV_Precondition_CVE-2025-66471_Requires_streaming_enabled', 'eBPF_Runtime_State_stream_is_False'] | eBPF_Mode=kernel_ebpf_uprobe_attached (uprobe:/lib/x86_64-linux-gnu/libz.so.1:inflate) | Trace_SHA256=fc0c677cf6e9c09a"
+        }
+      ]
+    },
+    {
+      "cve": "CVE-2026-97687",
+      "product_status": {
+        "known_not_affected": [
+          "PROD-URLLIB3"
+        ]
+      },
+      "notes": [
+        {
+          "category": "summary",
+          "text": "[VEX-Prove Formal Certificate] Z3=UNSAT | UNSAT_Core=['OSV_Precondition_CVE-2026-97687_Requires_https_proxy_configured', 'eBPF_Runtime_State_https_proxy_is_False'] | eBPF_Mode=kernel_ebpf_uprobe_attached (uprobe:/lib/x86_64-linux-gnu/libz.so.1:inflate) | Trace_SHA256=fc0c677cf6e9c09a"
+        }
+      ]
+    },
+    {
+      "cve": "CVE-2025-66418",
+      "product_status": {
+        "known_affected": [
+          "PROD-URLLIB3"
+        ]
+      },
+      "notes": [
+        {
+          "category": "summary",
+          "text": "[VEX-Prove Formal Certificate] Z3=SAT | UNSAT_Core=[] | eBPF_Mode=kernel_ebpf_uprobe_attached (uprobe:/lib/x86_64-linux-gnu/libz.so.1:inflate) | Trace_SHA256=fc0c677cf6e9c09a"
+        }
+      ]
+    },
+    {
+      "cve": "CVE-2026-97689",
+      "product_status": {
+        "known_affected": [
+          "PROD-URLLIB3"
+        ]
+      },
+      "notes": [
+        {
+          "category": "summary",
+          "text": "[VEX-Prove Formal Certificate] Z3=SAT | UNSAT_Core=[] | eBPF_Mode=kernel_ebpf_uprobe_attached (uprobe:/lib/x86_64-linux-gnu/libz.so.1:inflate) | Trace_SHA256=fc0c677cf6e9c09a"
+        }
+      ]
+    }
+  ]
+}

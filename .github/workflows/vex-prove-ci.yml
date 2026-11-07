@@ -1,0 +1,42 @@
+name: VEX-Prove Formal Verification CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  formal-vex-verification:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install System eBPF, ELF Binutils & Aqua Trivy
+        run: |
+          sudo apt-get update && sudo apt-get install -y bpftrace binutils wget apt-transport-https gnupg
+          wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | gpg --dearmor | sudo tee /usr/share/keyrings/trivy.gpg > /dev/null
+          echo "deb [signed-by=/usr/share/keyrings/trivy.gpg] https://aquasecurity.github.io/trivy-repo/deb generic main" | sudo tee /etc/apt/sources.list.d/trivy.list
+          sudo apt-get update && sudo apt-get install -y trivy
+
+      - name: Install VEX-Prove Package & Dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -e . pytest
+
+      - name: Run Full 52-Test Formal Verification Suite
+        run: pytest -v
+
+      - name: Run CLI Verification Suites (Audit, RealWorld E2E, Registers, Future-Guard, AI-Patch, Scan-Repo)
+        run: |
+          python3 -m vex_prove.cli.main audit-ultimate
+          python3 -m vex_prove.cli.main benchmark-suite
+          python3 -m vex_prove.cli.main deep-register-audit
+          python3 -m vex_prove.cli.main future-guard
+          python3 -m vex_prove.cli.main ai-and-patch
+          python3 -m vex_prove.cli.main scan-repo benchmarks/realworld_app --entrypoint benchmarks/realworld_app/safe_service.py

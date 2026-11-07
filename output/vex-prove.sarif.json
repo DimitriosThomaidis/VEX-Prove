@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "VEX-Prove Z3 Formal Verifier",
+          "version": "1.0.0",
+          "informationUri": "https://github.com/DimitriosThomaidis/VEX-Prove",
+          "rules": [
+            {
+              "id": "CVE-2024-37891",
+              "name": "Urllib3ProxyAuthRedirectLeak",
+              "shortDescription": {
+                "text": "Proxy-Authorization header not stripped on cross-origin redirect"
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "CVE-2024-37891",
+          "level": "error",
+          "message": {
+            "text": "Z3 proved SAT (Exploitable): Backport incomplete! Local code fails to strip: ['proxy-authorization']. Auto-patch synthesized and Z3-verified at output/vex-prove-autofix.patch."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "benchmarks/sample_targets/vulnerable_client.py"
+                },
+                "region": {
+                  "startLine": 3
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

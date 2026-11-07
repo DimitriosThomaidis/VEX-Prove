@@ -1,0 +1,6 @@
+- id: vex-prove-guard-check
+  name: VEX-Prove Semantic Sanitizer & Backport Prover
+  description: Blocks commits that accidentally remove inline CVE mitigations (Z3 UNSAT -> SAT regression).
+  entry: python3 -m vex_prove.cli.main pre-commit-check
+  language: python
+  types: [python]
