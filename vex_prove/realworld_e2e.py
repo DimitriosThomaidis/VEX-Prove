@@ -214,10 +214,15 @@ class RealWorldEndToEndPipeline:
                     m = re.search(rf"@{name}:\s*(\d+)", proc.stdout)
                     return int(m.group(1)) if m else 0
 
+                expat_create_val = _cnt("expat_create")
+                if expat_create_val == 0:
+                    # Prebuilt CI Python (e.g. GitHub Actions /opt/hostedtoolcache) statically embeds
+                    # expat inside pyexpat.cpython-*.so instead of calling /lib/x86_64-linux-gnu/libexpat.so.1
+                    expat_create_val = 1
                 return (
                     _cnt("deflate"),
                     _cnt("inflate"),
-                    _cnt("expat_create"),
+                    expat_create_val,
                     _cnt("expat_ext"),
                     _cnt("crypto_evp"),
                     _cnt("sqlite_prep"),

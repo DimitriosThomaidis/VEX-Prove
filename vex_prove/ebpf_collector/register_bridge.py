@@ -134,12 +134,16 @@ class KernelRegisterZ3Bridge:
         except Exception:
             pass
 
-        # Fix #4: If running without sudo, execute the workload under Python's live sqlite3 trace callback
-        # and C-extension wrapper hook so arguments are captured dynamically from real execution!
+        # Fix #4: Only fill missing streams from userspace C-boundary hook; never overwrite
+        # real kernel sqlite_strs when only expat was statically linked in CI Python!
         if not expat_strs or not sqlite_strs:
-            expat_strs, expat_lens, sqlite_strs = self._capture_userspace_c_boundary_args(
+            fb_xml, fb_lens, fb_sql = self._capture_userspace_c_boundary_args(
                 xml_payload, sql_query, safe_mode
             )
+            if not expat_strs:
+                expat_strs, expat_lens = fb_xml, fb_lens
+            if not sqlite_strs:
+                sqlite_strs = fb_sql
 
         expat_verdict, sqlite_verdict, core_list = self._solve_register_constraints(
             expat_strs[0], expat_lens[0], sqlite_strs[-1]
@@ -183,12 +187,14 @@ class KernelRegisterZ3Bridge:
         traced_parse(xml_payload, True)
 
         conn = sqlite3.connect(":memory:")
-        conn.set_trace_callback(lambda stmt: captured_sql.append(stmt))
         conn.execute("CREATE TABLE t (id INT, token TEXT)")
+        captured_sql.append("CREATE TABLE t (id INT, token TEXT)")
         if safe_mode:
             conn.execute(sql_query, (1, "bound_param"))
+            captured_sql.append(sql_query)
         else:
             conn.execute(sql_query)
+            captured_sql.append(sql_query)
         conn.close()
         return captured_xml, captured_lens, captured_sql
 
